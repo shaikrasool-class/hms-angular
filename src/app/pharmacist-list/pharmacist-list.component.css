@@ -1,0 +1,85 @@
+.sidebar1 {
+  background: #F17153;
+  /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
+  /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
+  /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(rgb(34, 33, 33), #F58D63, #f1ab53);
+  /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#2e2d3b, #2e2d3b, #2e2d3b);
+  /* Standard syntax */
+  padding: 118px;
+  min-height: 100%;
+}
+.logo {
+  max-height: 130px;
+}
+.logo>img {
+  margin-top: 30px;
+  padding: 3px;
+  border: 3px solid white;
+  border-radius: 100%;
+}
+.list {
+  color: #fff;
+  list-style: none;
+  padding-left: 0px;
+}
+.list::first-line {
+  color: rgba(255, 255, 255, 0.5);
+}
+.list> li, h5 {
+  padding: 5px 0px 5px 40px;
+}
+.list>li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-left: 5px solid white;
+  color: white;
+  font-weight: bolder;
+  padding-left: 70px;
+}.main-content{
+text-align:center;
+}
+
+
+
+button,
+input,
+optgroup,
+select,
+textarea {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+
+
+.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,  .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+position: relative;
+min-height: 1px;
+padding-left: 15px;
+padding-right: 15px;
+}
+
+.btn {
+-webkit-border-radius: 60px;
+-moz-border-radius: 60px;
+-ms-border-radius: 60px;
+-o-border-radius: 60px;
+border-radius: 60px;
+}
+.btn-primary {
+color: #fff !important;
+background-color: #26A69A !important;
+border-color: #26A69A !important;
+}
+.btn-primary:hover {
+color: #fff !important;
+background-color: #26A69A !important;
+border-color: #26A69A !important;
+}
+h2,
+.h2 {
+font-size: 25px;
+}

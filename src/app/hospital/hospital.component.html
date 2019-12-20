@@ -1,0 +1,191 @@
+
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 col-sm-4 sidebar1">
+        <div class="logo">
+          <img src="/assets/images/name.png" width="100" height="100" class="img-responsive center-block"
+            alt="Logo">
+        </div>
+        <br>
+        <div class="left-navigation" class="collapse navbar-collapse">
+            <ul class="list">
+              <h5 style="color: aliceblue; font: bold;">WHEREABOUTS</h5>
+              <li [routerLink]="['/hospital']">Dashboard</li>
+              <li [routerLink]="['/doctor-list']"> Doctor</li>
+              <li [routerLink]="['/patient-list']">Patient</li>
+              <li [routerLink]="['/nurse-list']">Nurse</li>
+              <li [routerLink]="['/pharmacist-list']">Pharmacist</li>
+              <li [routerLink]="['/laboratorist-list']">Laboratorist</li>
+              <li [routerLink]="['/accountant-list']">Accountant</li>
+              <li [routerLink]="['/reciptionist-list']">Reciptionist</li>
+              <li>Payroll</li>
+              <li>Noticeboard</li>
+              <li>Contact Emails</li>
+              <li [routerLink]="['/adminsPro']">Profile</li>
+            </ul>
+          </div>
+    </div>
+
+
+    <div class="col-md-10 col-sm-8 main-content" style="min-height: 600px;" >
+        <div class="row">
+          <div class="col-md-12 col-sm-12 clearfix">
+           <h2 style="font-weight:200; margin:0px;" style="text-align:center;">Hospital Management System</h2>
+           </div>
+
+      <!-- Raw Links -->
+      <div class="col-md-12 col-sm-12 clearfix ">
+
+      <ul class="list-inline links-list pull-left">
+      <!-- Language Selector -->
+        <li><i class="entypo-right-circled" style="font-size: 15px;"></i> admin</li>
+
+      </ul>
+
+
+
+      <ul class="list-inline links-list pull-right">
+
+      <li>
+        <a [routerLink]="['/users']">
+            <i class="fa fa-globe"></i> &nbsp;Website
+        </a>
+      </li>
+
+      <li class="sep"></li>
+      <li>
+        <a href="">
+            Logout &nbsp;<i class="fa fa-sign-out"></i>
+        </a>
+      </li>
+      </ul>
+    </div>
+    </div>
+      <hr style="margin-top:0px;">
+          <h3 style="margin:20px 0px; color:#818da1; font-weight:200;" align="left">
+              <i class="entypo-right-circled"></i>Admin Dashboard
+          </h3>
+          <div class="row">
+              <div class="col-sm-3">
+                <div class="tile-stats tile-white tile-white-primary"
+                     [routerLink]="['/hospital/:hospId/doctor-list']">
+                    <div class="icon"><i class="fa fa-user-md" ></i></div>
+                    <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">{{dr.length}}</div>
+                    <h3 >Doctor</h3>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                    <div class="tile-stats tile-white-red"  [routerLink]="['/hospital/patient-list']">
+                        <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">{{pnt.length}}</div>
+                        <h3>Patient</h3>
+                    </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="tile-stats tile-white-aqua"  [routerLink]="['/hospital/nurse-list']">
+                    <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">{{nurs.length}}</div>
+                    <h3>Nurse</h3>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+            <div class="tile-stats tile-white-blue" [routerLink]="['/pharmacist-list']">
+                <div class="icon"><i class="fa fa-medkit"></i></div>
+                <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">{{pharma.length}}</div>
+                <h3>Pharmacist</h3>
+            </div>
+            </div>
+            <br>
+
+
+            <div class="col-sm-3">
+            <div class="tile-stats tile-white-cyan" [routerLink]="['/laboratorist-list']">
+                <div class="icon"><i class="fa fa-user"></i></div>
+                <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">{{lab.length}}</div>
+                <h3>Laboratorist</h3>
+            </div>
+            </div>
+
+            <div class="col-sm-3">
+
+            <div class="tile-stats tile-white-purple" [routerLink]="['/accountant-list']">
+                <div class="icon"><i class="fa fa-money"></i></div>
+                <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">{{account.length}}</div>
+                <h3>Accountant</h3>
+            </div>
+            </div>
+
+            <div class="col-sm-3">
+
+            <div class="tile-stats tile-white-pink">
+                <div class="icon"><i class="fa fa-list-alt"></i></div>
+                <div class="num" data-start="0" data-end="0" data-duration="1500" data-delay="0">0</div>
+                <h3>Payment</h3>
+            </div>
+            </div>
+
+            <div class="col-sm-3">
+            <div class="tile-stats tile-white-orange">
+                <div class="icon"><i class="fa fa-medkit"></i></div>
+                <div class="num" data-start="0" data-end="0" data-duration="1500" data-delay="0">0</div>
+                <h3>Medicine</h3>
+            </div>
+            </div>
+            </div>
+
+            <br>
+            <div class="col-sm-3">
+              <div class="tile-stats tile-white-pink" [routerLink]="['/reciptionist-list']">
+                  <div class="icon"><i class="fa fa-list-alt"></i></div>
+                  <div class="num" data-start="0" data-end="0" data-duration="1500" data-delay="0">{{recip.length}}</div>
+                  <h3>Reciptionist</h3>
+              </div>
+              </div>
+            <div class="row">
+            <div class="col-sm-3">
+            <div class="tile-stats tile-white-green">
+                <div class="icon"><i class="fa fa-wheelchair"></i></div>
+                <div class="num" data-start="0" data-end="1" data-duration="1500" data-delay="0">0</div>
+                <h3>Operation Report</h3>
+            </div>
+            </div>
+
+            <div class="col-sm-3">
+            <div class="tile-stats tile-white-brown">
+                <div class="icon"><i class="fa fa-github-alt"></i></div>
+                <div class="num" data-start="0" data-end="0" data-duration="1500" data-delay="0"></div>
+                <h3>Birth Report</h3>
+            </div>
+            </div>
+
+            <div class="col-sm-3">
+            <div class="tile-stats tile-white-plum">
+                <div class="icon"><i class="fa fa-ban"></i></div>
+                <div class="num" data-start="0" data-end="0" data-duration="1500" data-delay="0"></div>
+                <h3>Death Report</h3>
+            </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- Footer -->
+        <footer class="main">&nbsp;&nbsp;
+        © 2017 <strong>Hospital Management System</strong>
+        <strong class="pull-right"> VERSION 1.0&nbsp;&nbsp;   </strong>
+        Developed by
+        <a href="rasool.com" target="_blank">Rasool</a>
+        </footer>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
