@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Accountant } from '../models/accountant';
 import { AccountantService } from '../services/accountant.service';
 import { ToastrProvider } from '../providers/toastr.service';
@@ -14,6 +14,7 @@ export class AccountantListComponent implements OnInit {
 
   account: any = [];
 
+  search : any;
   constructor(private accountantService:AccountantService, private toastrService:ToastrProvider) { }
 
   ngOnInit() {

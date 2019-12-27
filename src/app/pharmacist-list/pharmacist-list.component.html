@@ -71,7 +71,7 @@
       </button><br><br><br>
 
 
-    <input  placeholder="enter search term here"  class="form-control" >
+    <input [(ngModel)]= "search" placeholder="enter search term here"  class="form-control" >
       <table class="table table-striped">
 
           <thead>
@@ -85,7 +85,7 @@
               </tr>
           </thead>
         <tbody>
-          <tr *ngFor="let pharmacist of pharma  | paginate: { itemsPerPage: 5, currentPage: p }">
+          <tr *ngFor="let pharmacist of pharma| filter : search  | paginate: { itemsPerPage: 5, currentPage: p }">
                <td>{{ pharmacist.phId }}</td>
                <td>{{ pharmacist.name }}</td>
                <td>{{ pharmacist.email }}</td>

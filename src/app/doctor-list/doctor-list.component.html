@@ -94,7 +94,7 @@
             <i class="fa fa-plus"></i>&nbsp;Add Doctor
         </button><br><br><br>
 
-        <input [(ngModel)] ="search" placeholder="enter search term here"  class="form-control" >
+        <input [(ngModel)] = "search" placeholder="enter search term here"  class="form-control" >
         <table class="table table-striped">
         <thead>
             <tr>
@@ -107,9 +107,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let d of dr  | paginate: { itemsPerPage: 5, currentPage: p }">
+            <tr *ngFor="let d of dr  | filter : search |paginate: { itemsPerPage: 5, currentPage: p }">
                  <td>{{ d.drId }}</td>
-                 <td [routerLink]="['/doctor']">{{ d.name }}</td>
+                 <td (click)="getPatientList(d)">{{ d.name }}</td>
                  <td>{{ d.email }}</td>
                  <td>{{ d.deparment }}</td>
               <td><button class="btn btn-info" (click)="editDoctor(d)" data-toggle="modal" data-target="#update">

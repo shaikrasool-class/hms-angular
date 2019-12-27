@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ToastrProvider } from '../providers/toastr.service';
 import { LaboratoristService } from '../services/laboratorist.service';
 import { Laboratorist } from '../models/laboratorist';
@@ -13,6 +13,8 @@ export class LaboratoristListComponent implements OnInit {
   laboratorist = new Laboratorist();
 
   lab: any = [];
+
+  search : any;
 
   constructor(private labService:LaboratoristService, private toastrService:ToastrProvider) { }
 

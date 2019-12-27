@@ -25,6 +25,12 @@ import { PharmacistListComponent } from './pharmacist-list/pharmacist-list.compo
 import { LaboratoristListComponent } from './laboratorist-list/laboratorist-list.component';
 import { AccountantListComponent } from './accountant-list/accountant-list.component';
 import { ReciptionistListComponent } from './reciptionist-list/reciptionist-list.component';
+import { PatientPipe } from './providers/patient.pipe';
+import { NursePipe } from './providers/nurse.pipe';
+import { PharmacistPipe } from './providers/pharmacist.pipe';
+import { LaboratoristPipe } from './providers/laboratorist.pipe';
+import { AccountantPipe } from './providers/accountant.pipe';
+import { ReciptionistPipe } from './providers/reciptionist.pipe';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
@@ -70,6 +76,12 @@ const appRoutes: Routes = [
     LaboratoristListComponent,
     AccountantListComponent,
     ReciptionistListComponent,
+    PatientPipe,
+    NursePipe,
+    PharmacistPipe,
+    LaboratoristPipe,
+    AccountantPipe,
+    ReciptionistPipe,
 
   ],
   imports: [

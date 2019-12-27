@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Nurse } from '../models/nurse';
 import { NurseService } from '../services/nurse.service';
 import { ToastrProvider } from '../providers/toastr.service';
@@ -15,8 +15,9 @@ export class NurseListComponent implements OnInit {
   nurse = new Nurse();
   hospital = new Hospital();
   nurs: any = [];
+  search : any;
 
-  constructor(private nurseService:NurseService, private toastrService:ToastrProvider, private hospitalService:HospitalService) { }
+  constructor(private nurseService:NurseService, private toastrService:ToastrProvider) { }
 
   ngOnInit() {
     this.getNurse();

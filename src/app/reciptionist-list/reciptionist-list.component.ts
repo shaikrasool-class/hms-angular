@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Reciptionist } from '../models/reciptionist';
 import { ReciptionistService } from '../services/reciptionist.service';
 import { ToastrProvider } from '../providers/toastr.service';
@@ -12,6 +12,7 @@ export class ReciptionistListComponent implements OnInit {
 
   reciptionist = new Reciptionist();
   recip: any = [];
+  search : any;
 
   constructor(private reciptionistService:ReciptionistService, private toastrService:ToastrProvider) { }
 

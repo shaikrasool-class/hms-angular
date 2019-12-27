@@ -11,5 +11,6 @@ export class Patient{
   admitDate: Date;
   dischargeDate: Date;
   diseases: String;
+  drId: number;
 
 }

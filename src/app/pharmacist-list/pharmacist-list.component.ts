@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pharmacist } from '../models/pharmacist';
 import { PharmacistService } from '../services/pharmacist.service';
 import { ToastrProvider } from '../providers/toastr.service';
@@ -14,6 +14,7 @@ export class PharmacistListComponent implements OnInit {
 
   pharma: any = [];
 
+  search : any;
   constructor(private pharmacistService:PharmacistService,private toastrService: ToastrProvider) { }
 
   ngOnInit() {

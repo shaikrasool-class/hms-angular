@@ -1,286 +1,242 @@
+<!--<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <!-- <a [routerLink]="['/hospitals']" class="navbar-brand">Hospital List</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a [routerLink]="['/users']">Home</a></li>
+          <li><a data-toggle="modal" data-target="#myModal" (click)="addNew()">Add Patient</a></li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li> <a [routerLink]="['/users']" ><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+-->
 <!-- side menu -->
 <div class="container-fluid">
-<div class="row">
-<div class="col-md-2 col-sm-8 sidebar1">
-      <div class="logo">
-<img src="/assets/images/name.png" width="100" height="100"
-class="img-responsive center-block"alt="Logo">
-      </div><br>
-<div class="left-navigation" class="collapse navbar-collapse">
-
-  <ul class="list">
-  <h5><strong>WHEREABOUTS</strong></h5>
-    <li [routerLink]="['/doctor']">Dashboard</li>
-    <li>Appointment</li>
-    <li>Prescription</li>
-    <li [routerLink]="['/doctor/patient-list']">Patient</li>
-    <li>Bed Allotment</li>
-    <li>Blood Bank</li>
-  </ul><br>
-
-
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="col-md-10 col-sm-8 main-content" style="min-height: 500px;">
-
   <div class="row">
-<div class="col-md-10 col-sm-10 clearfix" style="text-align:center;">
-<h2 style="font-weight:200; margin:0px;">Hospital Management System</h2>
-</div>
-
-<!-- Raw Links -->
-<div class="col-md-12 col-sm-12 clearfix ">
-
-<ul class="list-inline links-list pull-left">
-<!-- Language Selector -->
-<li class="dropdown language-selector">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
-      <i class="entypo-user"></i> doctor                </a>
-</li>
-
-<!-- Message Notifications -->
-          <li class="notifications dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-      <i class="entypo-mail"></i>
-                      </a>
-
-  <ul class="dropdown-menu">
-      <li>
-          <ul class="dropdown-menu-list scroller" style="overflow: hidden; outline: currentcolor none medium;" tabindex="5000">
-
-
-                                      </ul>
-      </li>
-
-      <li class="external">
-          <a href=" ">
-              View All Messages                        </a>
-      </li>
-  <div id="ascrail2000" class="nicescroll-rails" style="padding-right: 3px; width: 10px; z-index: 1000; position: absolute; top: 0px; left: -10px; height: 0px; cursor: default; display: none;">
-    <div style="position: relative; top: 0px; float: right; width: 5px; height: 0px; background-color: rgb(212, 212, 212); border: 1px solid rgb(204, 204, 204); background-clip: padding-box; border-radius: 1px;">
+    <div class="col-md-2 col-sm-4 sidebar1">
+      <div class="logo">
+        <img src="/assets/images/name.png" width="100" height="100" class="img-responsive center-block" alt="Logo">
+      </div>
+      <br>
+      <div class="left-navigation" class="collapse navbar-collapse">
+        <ul class="list">
+          <h5><strong>WHEREABOUTS</strong></h5>
+          <li [routerLink]="['/doctor']">Dashboard</li>
+          <li>Appointment</li>
+          <li>Prescription</li>
+          <li [routerLink]="['/doctor']">Patient</li>
+          <li>Bed Allotment</li>
+          <li>Blood Bank</li>
+          <li>Profile</li>
+        </ul>
+      </div>
     </div>
-  </div>
-  <div id="ascrail2000-hr" class="nicescroll-rails" style="height: 7px; z-index: 1000; top: -7px; left: 0px; position: absolute; cursor: default; display: none;">
-      <div style="position: relative; top: 0px; height: 5px; width: 0px; background-color: rgb(212, 212, 212); border: 1px solid rgb(204, 204, 204); background-clip: padding-box; border-radius: 1px;">
-    </div>
-  </div>
-</ul>
-</li>
-      </ul>
 
-
-<ul class="list-inline links-list pull-right">
-
-<li>
-  <a [routerLink]="['/users']">
-      <i class="fa fa-globe"></i> &nbsp;Website
-  </a>
-</li>
-
-<li class="sep"></li>
-<li>
-  <a href="">
-      Logout &nbsp;<i class="fa fa-sign-out"></i>
-  </a>
-</li>
-</ul>
-</div>
-
-</div>
-
-<hr style="margin-top:0px;">
-  <h3 style="margin:20px 0px; color:#818da1; font-weight:200;" align="left">
-      <i class="entypo-right-circled"></i>
-              Doctor's Profile                </h3>
+    <div class="col-md-10 col-sm-8 main-content" style="min-height: 600px;">
 
       <div class="row">
-<div class="col-md-12">
+        <div class="col-md-12 col-sm-12 clearfix">
+          <h2 style="font-weight:200; margin:0px;" style="text-align:center;">Hospital Management System</h2>
+        </div>
 
-<div class="panel panel-primary" data-collapsed="0">
+        <!-- Raw Links -->
+        <div class="col-md-12 col-sm-12 clearfix ">
 
-  <div class="panel-heading">
-      <div class="panel-title">
-          <h3 align="left">Edit Profile</h3>
-      </div>
-  </div>
+          <ul class="list-inline links-list pull-left">
+            <!-- Language Selector -->
+            <li><i class="entypo-right-circled"></i>doctor</li>
 
-  <div id="update"  class="panel-body">
-
-      <form role="form" class="form-horizontal form-groups" >
-
-          <div class="form-group" *ngIf="doctors">
-              <label for="field-1" class="col-sm-3 control-label">Doctor's Id</label>
-
-              <div class="col-sm-5">
-                  <input type="text" name="drId" class="form-control" id="field-1" [disabled]=true [(ngModel)]="doctors.drId">
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Name</label>
-
-              <div class="col-sm-5">
-                  <input type="text" name="name" class="form-control" id="field-1" [(ngModel)]="doctor.name">
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Email</label>
-
-              <div class="col-sm-5">
-                  <input type="text" name="email" class="form-control" id="field-1" [(ngModel)]="doctor.email">
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Contact</label>
-
-              <div class="col-sm-5">
-                  <input type="text" name="contact" class="form-control" id="field-1" [(ngModel)]="doctor.phone">
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Department</label>
-
-              <div class="col-sm-5">
-                  <input type="text" name="department" class="form-control" id="field-1" [(ngModel)]="doctor.deparment">
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Address</label>
-
-              <div class="col-sm-5">
-                  <input type="text" name="address" class="form-control" id="field-1" [(ngModel)]="doctor.address">
-              </div>
-          </div>
-
-          <div class="col-sm-3 control-label col-sm-offset-1">
-              <button type="submit" class="btn btn-success">
-                  <i class="fa fa-check"></i> Update                            </button>
-          </div>
-      </form>
-
-  </div>
+          </ul>
 
 
-</div>
 
-</div>
-</div>
+          <ul class="list-inline links-list pull-right">
 
-<div class="row">
-<div class="col-md-12">
+            <li>
+              <a [routerLink]="['/users']">
+                <i class="fa fa-globe"></i> &nbsp;Website
+              </a>
+            </li>
 
-<div class="panel panel-primary" data-collapsed="0">
-
-  <div class="panel-heading">
-      <div class="panel-title">
-          <h3 align="left">Change Password</h3>
-      </div>
-  </div>
-
-  <div class="panel-body">
-
-      <form role="form" class="form-horizontal form-groups" >
-
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Old Password</label>
-
-              <div class="col-sm-5">
-                  <input type="password" name="old_password" class="form-control" id="field-1" required="">
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">New Password</label>
-
-              <div class="col-sm-5">
-                  <input type="password" name="new_password" class="form-control" id="field-1" required="">
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="field-1" class="col-sm-3 control-label">Confirm New Password</label>
-
-              <div class="col-sm-5">
-                  <input type="password" name="confirm_new_password" class="form-control" id="field-1" required="">
-              </div>
-          </div>
-
-          <div class="col-sm-3 control-label col-sm-offset-1">
-              <button type="submit" class="btn btn-success">
-                  <i class="fa fa-check"></i> Update                            </button>
-          </div>
-      </form>
-
-  </div>
-
-</div>
-
-</div>
-</div>
-
-  <!-- Footer -->
-<footer class="main">
-© 2019 <strong>Hospital Management System</strong>
-<strong class="pull-right"> VERSION 1.0</strong>
-Developed by
-<a href="http://shaikrasool.com" target="_blank">Rasool</a>
-</footer>
-
-</div>
-
-
-</div>
-</div>
-
-    	<!-- edit -->
-      <div id="update" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Update Details</h4>
-            </div>
-            <div class="modal-body">
-
-                          Id: <input type="text" class="form-control" [disabled]=true [(ngModel)]="doctor.drId" />
-
-                          Name: <input type="text" class="form-control" [(ngModel)]="doctor.name" />
-
-                          Email: <input type="text" class="form-control" [(ngModel)]="doctor.email" />
-
-                          Contact: <input type="text" class="form-control" [(ngModel)]="doctor.phone" />
-
-                          Department: <input type="text" class="form-control" [(ngModel)]="doctor.deparment" />
-
-                          Address: <input type="text" class="form-control" [(ngModel)]="doctor.address" />
-
-                      </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary"
-                data-dismiss="modal">Update</button>
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+            <li class="sep"></li>
+            <li>
+              <a href="">
+                Logout &nbsp;<i class="fa fa-sign-out"></i>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
+      <hr style="margin-top:0px;">
+      <h3 style="margin:20px 0px; color:#818da1; font-weight:200;" align="left">
+        <i class="entypo-right-circled"></i>Doctor
+      </h3>
+      <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+        <i class="fa fa-plus"></i>&nbsp;Add Patient
+      </button><br><br><br>
+
+
+      <input placeholder="enter search term here" class="form-control">
+      <table class="table table-striped">
+
+        <thead>
+          <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Disease</th>
+            <th class="text-center">Action</th>
+            <th class="text-center">View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pt of pnt  |paginate: { itemsPerPage: 5, currentPage: p }">
+            <td>{{ pt.pid }}</td>
+            <td [routerLink]="['/patient']">{{ pt.name }}</td>
+            <td>{{ pt.email }}</td>
+            <td>{{ pt.diseases }}</td>
+            <td>
+              <button class="btn btn-info" (click)="editPatient(pt)" data-toggle="modal" data-target="#update">
+                <span class="glyphicon glyphicon-edit"></span> Edit
+              </button>&nbsp;&nbsp;&nbsp;
+
+              <button class="btn btn-danger" (click)="deletePatient(pt)">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+              </button>
+            </td>
+
+            <td>
+              <button (click)="printPdf(pt)">
+                <span class="glyphicon glyphicon-file"></span> PDF
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Paitent</h4>
+      </div>
+      <div class="modal-body">
+          Dr.Id: <input type="text" class="form-control"  [(ngModel)]="patient.drId" />
+        Name: <input type="text" class="form-control" [(ngModel)]="patient.name" />
+        Gender:
+        <select [(ngModel)]="patient.gender" class="form-control">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        Email: <input type="text" class="form-control" [(ngModel)]="patient.email" />
+
+        Contact: <input type="text" class="form-control" [(ngModel)]="patient.phone" />
+
+        Address: <input type="" class="form-control" [(ngModel)]="patient.address" />
+
+        Date of Birth: <input type="date" class="form-control" [(ngModel)]="patient.dateOfBirth" />
+
+        Age: <input type="text" class="form-control" [(ngModel)]="patient.age" />
+
+        Blood Group:
+        <select class="form-control" [(ngModel)]="patient.bloodGroup">
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+        Disease: <input type="text" class="form-control" [(ngModel)]="patient.diseases" />
+
+        Admit Date: <input type="date" class="form-control" [(ngModel)]="patient.admitDate" />
+
+        Discharge Date: <input type="date" class="form-control" [(ngModel)]="patient.dischargeDate" />
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="savePatient(patient)" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- edit -->
+<div id="update" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Details</h4>
+      </div>
+      <div class="modal-body">
+          Dr.Id: <input type="text" class="form-control" [disabled]=true [(ngModel)]="patient.drId" />
+        Name: <input type="text" class="form-control" [(ngModel)]="patient.name" />
+        Gender:
+        <select [(ngModel)]="patient.gender" class="form-control">
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        Email: <input type="text" class="form-control" [(ngModel)]="patient.email" />
+
+        Contact: <input type="text" class="form-control" [(ngModel)]="patient.phone" />
+
+        Address: <input type="" class="form-control" [(ngModel)]="patient.address" />
+
+        Date of Birth: <input type="date" class="form-control" [(ngModel)]="patient.dateOfBirth" />
+
+        Age: <input type="text" class="form-control" [(ngModel)]="patient.age" />
+
+        Blood Group:
+        <select class="form-control" [(ngModel)]="patient.bloodGroup">
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+        Disease: <input type="text" class="form-control" [(ngModel)]="patient.diseases" />
+
+        Admit Date: <input type="date" class="form-control" [(ngModel)]="patient.admitDate" />
+
+        Discharge Date: <input type="date" class="form-control" [(ngModel)]="patient.dischargeDate" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="savePatient(patient)"
+          data-dismiss="modal">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

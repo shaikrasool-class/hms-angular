@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { DoctorService } from '../services/doctor.service';
+import { PatientService } from '../services/patient.service';
 import { ToastrProvider } from '../providers/toastr.service';
-import { Doctor } from '../models/doctor';
+import { Patient } from '../models/patient';
+import { DoctorService } from '../services/doctor.service';
+declare var swal: any;
 @Component({
   selector: 'app-doctor',
   templateUrl: './doctor.component.html',
@@ -9,30 +11,78 @@ import { Doctor } from '../models/doctor';
 })
 export class DoctorComponent implements OnInit {
 
-  constructor(private doctorService:DoctorService, private toastrService: ToastrProvider) { }
-  doctor = new Doctor();
-  doctors: any= [];
+  constructor(private patientService:PatientService, private doctorService:DoctorService, private toastrService: ToastrProvider) { }
+
+  patient = new Patient();
+  pnt: any = [];
+
   ngOnInit() {
-      this.getDoctor(this.doctor);
+    this.getPatients();
+  }
+  getPatients() {
+  this.pnt = this.doctorService.patientList;
+
   }
 
-  getDoctor = (doctor) =>{
-    this.doctorService.getOneDoctor(this.doctor).subscribe((response)=> {
-      if(this.doctor.drId !=undefined){
-        this.doctors =response;
-        this.toastrService.successmsg(this.doctor.name+ "updated successfully");
+
+
+
+  savePatient =(patient) =>{
+    this.patientService.addNewPatient(this.patient).subscribe ((response) => {
+
+      if(this.patient.pid == undefined){
+        this.toastrService.successmsg("patient added successfully");
       }
+      else{
+        this.toastrService.successmsg(patient.name +"patient updated successfully")
+      }
+      this.getPatients();
+
     })
   }
 
-  editDoctor = (doctor) => {
-    console.log(doctor)
-    this.doctor = doctor;
-    this.doctorService.editDoctor(doctor).subscribe(response => {
-      this.getDoctor(doctor);
-    },(error) => {
-      console.log("something is wrong")
-      alert(error.error.error[0]);
+  editPatient = (patient) => {
+    console.log(patient)
+        this.patient  = patient;
+        this.patientService.editPatient(patient).subscribe(response => {
+          this.getPatients();
+        }, (error) => {
+          alert(error.eroor.error[0]);
+        })
+      }
+
+  deletePatient = (patient) => {
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((response) => {
+      this.patientService.deletePatient(patient).subscribe(response => {
+        this.toastrService.successmsg("Doctor deleted successfully..");
+        this.getPatients();
+      },
+        error => {
+          this.toastrService.infotoastr(error.error);
+        })
+    },
+      (error) => {
+        this.toastrService.infotoastr("You canceled your choice");
+      })
+  }
+  printPdf = (patient) =>{
+    this.patient=patient;
+    this.patientService.getPdf(patient).subscribe(response => {
+      this.getPatients();
+      console.log("pdf printed")
+
+    },
+    (error) => {
+      console.log("something is wrong in downloading pdf")
+      console.log(error);
     })
   }
 }

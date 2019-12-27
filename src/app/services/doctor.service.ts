@@ -7,6 +7,7 @@ import { Doctor } from '../models/doctor';
   providedIn: 'root'
 })
 export class DoctorService {
+  patientList : any;
 
   constructor(private url:BaseUrlProvider, private http:HttpClient ) { }
 
