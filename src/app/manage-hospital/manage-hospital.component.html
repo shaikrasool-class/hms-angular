@@ -1,0 +1,170 @@
+<!-- side menu -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 col-sm-4 sidebar1">
+      <div class="logo">
+        <img src="/assets/images/name.png" width="100" height="100" class="img-responsive center-block" alt="Logo" />
+      </div>
+      <br />
+      <div class="left-navigation" class="collapse navbar-collapse">
+        <ul class="list">
+          <h5><strong>WHEREABOUTS</strong></h5>
+          <li [routerLink]="['/hospital']">Dashboard</li>
+          <li [routerLink]="['/doctor-list']">Doctor</li>
+          <li [routerLink]="['/patient-list']">Patient</li>
+          <li [routerLink]="['/nurse-list']">Nurse</li>
+          <li [routerLink]="['/pharmacist-list']">Pharmacist</li>
+          <li [routerLink]="['/laboratorist-list']">Laboratorist</li>
+          <li [routerLink]="['/accountant-list']">Accountant</li>
+          <li [routerLink]="['/reciptionist-list']">Reciptionist</li>
+          <li [routerLink]="['/manageHospital']">Manage Hospital</li>
+          <li>Payroll</li>
+          <li>Noticeboard</li>
+          <li>Contact Emails</li>
+          <li [routerLink]="['/adminsPro']">Profile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-10 col-sm-6 main-content" style="min-height: 600px;">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 clearfix">
+          <h2 style="font-weight:200; margin:0px;" style="text-align:center;">
+            Hospital Management System
+          </h2>
+        </div>
+
+        <!-- Raw Links -->
+        <div class="col-md-12 col-sm-12 clearfix ">
+          <ul class="list-inline links-list pull-left">
+            <!-- Language Selector -->
+            <li><i class="entypo-right-circled"></i> admin</li>
+          </ul>
+          <ul class="list-inline links-list pull-right">
+            <li>
+              <a [routerLink]="['/users']">
+                <i class="fa fa-globe"></i> &nbsp;Website
+              </a>
+            </li>
+
+            <li class="sep"></li>
+            <li>
+              <a href=""> Logout &nbsp;<i class="fa fa-sign-out"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--Profile details-->
+
+      <hr style="margin-top:0px;" />
+      <h3 style="margin:20px 0px; color:#818da1; font-weight:200;" align="left">
+        <i class="entypo-right-circled"> </i>
+        Manage Hospital Profile
+      </h3>
+
+      <div class="col-md-12 col-sm-8 main-content">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="panel-title" align="left">
+              <h4 style="color: #101011;">Edit Profile</h4>
+            </div>
+          </div>
+          <div class="panel-body">
+            <form class="form-horizontal form-groups validate" target="_top" accept-charset="utf-8">
+              <div *ngFor="let u of users">
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">Id</label>
+                      <div class="col-sm-5">
+                        <input type="text" class="form-control" name="hospId" value="{{ u.hospId }}" [disabled]="true"
+                          required="" />
+                      </div>
+                    </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Name</label>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" name="name" value="{{ u.name }}" [disabled]="true"
+                      required="" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Email</label>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" name="email" value="{{ u.email }}" [disabled]="true"
+                      required="" />
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Phone</label>
+                    <div class="col-sm-5">
+                      <input type="text" class="form-control" name="email" value="{{ u.phone }}" [disabled]="true"
+                        required="" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-3 control-label">Fax</label>
+                      <div class="col-sm-5">
+                        <input type="text" class="form-control" name="email" value="{{ u.fax }}" [disabled]="true"
+                          required="" />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-5">
+                          <input type="text" class="form-control" name="name" value="{{ u.address }}" [disabled]="true"
+                            required="" />
+                        </div>
+                      </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-5">
+                    <button class="btn btn-primary" data-toggle="modal" data-target="#update" (click)="editHospital(u)">
+                      <i class="fa fa-check"></i>&nbsp; Edit Profile
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+   <!--EDIT ADMIN DETAILS -->
+
+   <div id="update" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">Update Details</h4>
+              </div>
+                <div class="modal-body">
+                    Id: <input type="text" class="form-control" [disabled]=true [(ngModel)]="hospital.hospId" />
+
+                    Name:<input type="text" name = "name" [(ngModel)]="hospital.name" class="form-control"/>
+
+                    Email:<input type="text" name = "email"  [(ngModel)]="hospital.email" class="form-control"/>
+
+                    Phone:<input type="text" name = "name" [(ngModel)]="hospital.phone" class="form-control"/>
+
+                    Fax:<input type="text" name = "name" [(ngModel)]="hospital.fax" class="form-control"/>
+
+                    Address:<input type="text" name = "name" [(ngModel)]="hospital.address" class="form-control"/>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" (click)="saveHospital(hospital)"
+                          data-dismiss="modal">Update</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>
+                </div>
+
+            </div>
+        </div>
+  </div>
+
+      <footer class="main">
+        © 2019 <strong>Hospital Management System</strong>
+        <strong class="pull-right"> VERSION 1.0</strong>
+        Developed by
+        <a href="http://shaikrasool.com" target="_blank">Rasool</a>
+      </footer>
+    </div>
+  </div>
+</div>

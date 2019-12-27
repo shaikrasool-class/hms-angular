@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PatientService } from '../services/patient.service';
 import { ToastrProvider } from '../providers/toastr.service';
 import { Patient } from '../models/patient';
+import { Doctor } from '../models/doctor';
 import { DoctorService } from '../services/doctor.service';
 declare var swal: any;
 @Component({
@@ -15,6 +16,10 @@ export class DoctorComponent implements OnInit {
 
   patient = new Patient();
   pnt: any = [];
+
+  doctor = new  Doctor();
+  dr: any = [];
+
 
   ngOnInit() {
     this.getPatients();
@@ -31,10 +36,10 @@ export class DoctorComponent implements OnInit {
     this.patientService.addNewPatient(this.patient).subscribe ((response) => {
 
       if(this.patient.pid == undefined){
-        this.toastrService.successmsg("patient added successfully");
+        this.toastrService.successmsg(" patient added successfully");
       }
       else{
-        this.toastrService.successmsg(patient.name +"patient updated successfully")
+        this.toastrService.successmsg(patient.name +" patient updated successfully")
       }
       this.getPatients();
 
@@ -83,6 +88,35 @@ export class DoctorComponent implements OnInit {
     (error) => {
       console.log("something is wrong in downloading pdf")
       console.log(error);
+    })
+  }
+
+  saveDoctor = (doctor) => {
+
+    this.doctorService.addNewDoctor(this.doctor).subscribe((response) => {
+
+      if(response !=null) {
+        if(this.doctor.drId == undefined) {
+          this.toastrService.successmsg("doctor added successfully..");
+        }
+        else{
+          this.toastrService.successmsg(doctor.name+" updated successfully");
+        }
+        this.getPatients();
+      }
+    },(error) => {
+       alert(error.error.error[0])
+    })
+  }
+
+  editDoctor = (doctor) => {
+    console.log(doctor)
+    this.doctor = doctor;
+    this.doctorService.editDoctor(doctor).subscribe(response => {
+      this.getPatients();
+    },(error) => {
+      console.log("something is wrong")
+      alert(error.error.error[0]);
     })
   }
 }

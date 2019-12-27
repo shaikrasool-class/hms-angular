@@ -31,6 +31,7 @@ import { PharmacistPipe } from './providers/pharmacist.pipe';
 import { LaboratoristPipe } from './providers/laboratorist.pipe';
 import { AccountantPipe } from './providers/accountant.pipe';
 import { ReciptionistPipe } from './providers/reciptionist.pipe';
+import { ManageHospitalComponent } from './manage-hospital/manage-hospital.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
@@ -50,6 +51,7 @@ const appRoutes: Routes = [
   { path: 'laboratorist-list', component:LaboratoristListComponent},
   { path: 'accountant-list', component:AccountantListComponent},
   { path: 'reciptionist-list', component:ReciptionistListComponent},
+  { path: 'manageHospital', component:ManageHospitalComponent},
   { path: '',
     redirectTo: '/users',
     pathMatch: 'full'
@@ -82,6 +84,7 @@ const appRoutes: Routes = [
     LaboratoristPipe,
     AccountantPipe,
     ReciptionistPipe,
+    ManageHospitalComponent,
 
   ],
   imports: [

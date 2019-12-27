@@ -4,4 +4,5 @@ export class Hospital {
     email: string;
     phone: number;
     name: string;
+    address: String;
 }
