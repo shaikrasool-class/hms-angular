@@ -106,7 +106,7 @@
         <tbody>
           <tr *ngFor="let n of nurs| filter : search  | paginate: { itemsPerPage: 5, currentPage: p }">
             <td>{{ n.nId }}</td>
-            <td>{{ n.name }}</td>
+            <td [routerLink]="['/nurse']">{{ n.name }}</td>
             <td>{{ n.email }}</td>
             <td>{{ n.phone }}</td>
             <td>
