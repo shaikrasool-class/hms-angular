@@ -33,21 +33,24 @@ import { AccountantPipe } from './providers/accountant.pipe';
 import { ReciptionistPipe } from './providers/reciptionist.pipe';
 import { ManageHospitalComponent } from './manage-hospital/manage-hospital.component';
 import { BedListComponent } from './bed-list/bed-list.component';
+import { BedAllotmentComponent } from './bed-allotment/bed-allotment.component';
+import { BloodDonorComponent } from './blood-donor/blood-donor.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
   { path: 'users',  component: UserComponent },
   { path: 'adminsPro', component: AdminListComponent},
   { path: 'hospital', component: HospitalComponent},
-  { path: 'hospital/:hospId/doctor-list', component: DoctorListComponent},
+  { path: 'hospital/doctor-list', component: DoctorListComponent},
   { path: 'hospital/patient-list', component: PatientListComponent },
-  { path: 'hospital/nurse-list', component:NurseListComponent},
   { path: 'doctor-list', component: DoctorListComponent},
   { path: 'patient-list', component: PatientListComponent },
   { path: 'doctor/drId', component: DoctorComponent },
   { path: 'doctor', component: DoctorComponent},
   { path: 'nurse-list', component:NurseListComponent},
   { path: 'bed-list', component:BedListComponent},
+  { path: 'bedallotment', component:BedAllotmentComponent},
+  { path: 'blood-donor', component:BloodDonorComponent},
   { path: 'pharmacist-list', component:PharmacistListComponent},
   { path: "patient", component:PatientComponent},
   { path: "nurse", component:NurseComponent},
@@ -89,6 +92,8 @@ const appRoutes: Routes = [
     ReciptionistPipe,
     ManageHospitalComponent,
     BedListComponent,
+    BedAllotmentComponent,
+    BloodDonorComponent,
 
   ],
   imports: [

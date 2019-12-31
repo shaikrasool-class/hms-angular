@@ -20,10 +20,10 @@ getAllBeds = () => {
   return this.http.get(`${this.url.apiBaseUrl}bed/allBeds`);
   }
 editBed = (bed) =>{
-    return this.http.put(`${this.url.apiBaseUrl}bed/updateBed`, bed)
+    return this.http.put(`${this.url.apiBaseUrl}bed/updateBed`, bed);
   }
 deleteBed = (bed) => {
-      return this.http.delete(`${this.url.apiBaseUrl}bed/deleteBed/${bed.bed_Id}`)
+      return this.http.delete(`${this.url.apiBaseUrl}bed/deleteBed/${bed.bed_Id}`);
   }
 
 

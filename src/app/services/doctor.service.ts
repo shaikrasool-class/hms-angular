@@ -12,7 +12,6 @@ export class DoctorService {
   constructor(private url:BaseUrlProvider, private http:HttpClient ) { }
 
 getAllDoctors = () => {
-
   return this.http.get(`${this.url.apiBaseUrl}doctor/allDoctors`);
 }
 

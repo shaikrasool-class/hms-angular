@@ -22,9 +22,6 @@ export class AdminService {
     console.log("from admin service "+admin.id)
     return this.http.put(`${this.url.apiBaseUrl}admin/updateAdmin`, admin)
   }
-  
-
-
 getAllAdmin = () => {
   return this.http.get(`${this.url.apiBaseUrl}admin/allAdmins`);
   }
@@ -36,6 +33,6 @@ editAdmin = (admin) =>{
 deleteAdmin = (admin) => {
       return this.http.delete(`${this.url.apiBaseUrl}admin/deleteAdmin/${ admin.id}`)
   }
-  
+
 }
 
