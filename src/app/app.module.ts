@@ -35,6 +35,8 @@ import { ManageHospitalComponent } from './manage-hospital/manage-hospital.compo
 import { BedListComponent } from './bed-list/bed-list.component';
 import { BedAllotmentComponent } from './bed-allotment/bed-allotment.component';
 import { BloodDonorComponent } from './blood-donor/blood-donor.component';
+import { MedicineCategoryComponent } from './medicine-category/medicine-category.component';
+import { MedicineComponent } from './medicine/medicine.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
@@ -52,6 +54,8 @@ const appRoutes: Routes = [
   { path: 'bedallotment', component:BedAllotmentComponent},
   { path: 'blood-donor', component:BloodDonorComponent},
   { path: 'pharmacist-list', component:PharmacistListComponent},
+  { path: 'medicine-category', component: MedicineCategoryComponent},
+  { path: 'medicine', component: MedicineComponent},
   { path: "patient", component:PatientComponent},
   { path: "nurse", component:NurseComponent},
   { path: 'laboratorist-list', component:LaboratoristListComponent},
@@ -94,6 +98,8 @@ const appRoutes: Routes = [
     BedListComponent,
     BedAllotmentComponent,
     BloodDonorComponent,
+    MedicineCategoryComponent,
+    MedicineComponent,
 
   ],
   imports: [

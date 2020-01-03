@@ -76,10 +76,10 @@
               <td>{{ b.bloodgroup }}</td>
               <td>{{ b.date }}</td>
               <td>
-                <button class="btn btn-info" data-toggle="modal" data-target="#update">
+                <button class="btn btn-info" (click)="editBloodDonor(b)" data-toggle="modal" data-target="#update">
                   <span class="glyphicon glyphicon-edit"></span> Edit</button>&nbsp;&nbsp;&nbsp;
-                <button class="btn btn-danger">
-                  <span class="glyphicon glyphicon-trash"></span> Delete
+                <button class="btn btn-danger" (click)="deleteBloodDonor(b)">
+                  <span class="glyphicon glyphicon-trash" ></span> Delete
                 </button>
               </td>
               <td>
@@ -108,7 +108,7 @@
 
               Name : <input type="text" class="form-control" [(ngModel)]="bloodDonor.name" />
               Email : <input type="text" class="form-control" [(ngModel)]="bloodDonor.email" />
-              Address : <input type="text" class="form-control" [(ngModel)]="bloodDonor.address" />
+              Address : <input type="textarea" class="form-control" [(ngModel)]="bloodDonor.address" />
               Phone : <input type="text" class="form-control" [(ngModel)]="bloodDonor.phone" />
               Gender:
               <select [(ngModel)]="bloodDonor.gender" class="form-control">
@@ -138,6 +138,54 @@
           </div>
         </div>
       </div>
+
+
+
+            <!-- edit -->
+            <div id="update" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Details</h4>
+                  </div>
+                  <div class="modal-body">
+
+                                Id: <input type="text" class="form-control" [disabled]=true [(ngModel)]="bloodDonor.donorId" />
+                                Name : <input type="text" class="form-control" [(ngModel)]="bloodDonor.name" />
+                                Email : <input type="text" class="form-control" [(ngModel)]="bloodDonor.email" />
+                                Address : <input type="textarea" class="form-control" [(ngModel)]="bloodDonor.address" />
+                                Phone : <input type="text" class="form-control" [(ngModel)]="bloodDonor.phone" />
+                                Gender:
+                                <select [(ngModel)]="bloodDonor.gender" class="form-control">
+                                  <option value="Male">Male</option>
+                                  <option value="Female">Female</option>
+                                </select>
+                                Age : <input type="text" class="form-control" [(ngModel)]="bloodDonor.age" />
+                                Blood Group:
+                                <select  class="form-control" [(ngModel)]="bloodDonor.bloodgroup">
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select>
+                                Last Donation Date : <input type="date" class="form-control" [(ngModel)]="bloodDonor.date" />
+
+                            </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="saveBloodDonor(bloodDonor)"
+                      data-dismiss="modal">Update</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
 
 </div>

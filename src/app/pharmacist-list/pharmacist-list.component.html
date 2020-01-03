@@ -88,7 +88,7 @@
         <tbody>
           <tr *ngFor="let pharmacist of pharma| filter : search  | paginate: { itemsPerPage: 5, currentPage: p }">
                <td>{{ pharmacist.phId }}</td>
-               <td>{{ pharmacist.name }}</td>
+               <td [routerLink]="['/medicine-category']">{{ pharmacist.name }}</td>
                <td>{{ pharmacist.email }}</td>
                <td>{{ pharmacist.phone }}</td>
                <td>{{ pharmacist.address }}</td>

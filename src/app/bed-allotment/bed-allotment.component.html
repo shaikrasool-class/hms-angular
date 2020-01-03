@@ -76,9 +76,9 @@
             <td>{{ b.allotmentDate }}</td>
             <td>{{ b.dischargeDate }}</td>
             <td>
-              <button class="btn btn-info" data-toggle="modal" data-target="#update">
+              <button class="btn btn-info"  data-toggle="modal" data-target="#update" (click)="editBedAllotment(b)">
                 <span class="glyphicon glyphicon-edit"></span> Edit</button>&nbsp;&nbsp;&nbsp;
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" (click)="deleteBedAllotment(b)">
                 <span class="glyphicon glyphicon-trash"></span> Delete
               </button>
             </td>
@@ -127,6 +127,41 @@
     </div>
   </div>
 
+<!-- edit -->
+<div id="update" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Update Details</h4>
+      </div>
+      <div class="modal-body">
+
+                    Id: <input type="text" class="form-control" [disabled]=true [(ngModel)]="bedallotment.bedId" />
+
+                    Bed Number:
+                    <select  class="form-control" [(ngModel)]="bedallotment.bedNumber">
+                      <option *ngFor="let b of bed" [value]="b.bedNumber">{{b.bedNumber}}</option>
+                    </select>
+
+                    Pantient Name:
+                    <select  class="form-control" [(ngModel)]="bedallotment.patientName">
+                      <option *ngFor="let patient of pnt" [value]="patient.name">{{patient.name}}</option>
+                    </select>
+                    Admission Date: <input type="date" class="form-control" [(ngModel)]="bedallotment.allotmentDate" />
+
+                    Discharge Date: <input type="date" class="form-control" [(ngModel)]="bedallotment.dischargeDate" />
+
+                </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveBedAllotment(bedallotment)"
+          data-dismiss="modal">Update</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   </div>

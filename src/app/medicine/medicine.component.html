@@ -1,0 +1,171 @@
+<!-- side menu -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2 col-sm-4 sidebar1">
+      <div class="logo">
+        <img src="/assets/images/name.png" width="100" height="100" class="img-responsive center-block" alt="Logo" />
+      </div>
+      <br />
+      <div class="left-navigation" class="collapse navbar-collapse">
+        <ul class="list">
+          <h5><strong>WHEREABOUTS</strong></h5>
+          <li >Dashboard</li>
+          <li [routerLink]="['/medicine-category']">Medicine Category</li>
+          <li [routerLink]="['/medicine']">Manage Medicine</li>
+          <li >Medicine Sales</li>
+          <li >Payroll</li>
+          <li>Profile</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-10 col-sm-8 main-content" style="min-height: 600px;">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 clearfix">
+          <h2 style="font-weight:200; margin:0px;" style="text-align:center;">
+            Hospital Management System
+          </h2>
+        </div>
+
+        <!-- Raw Links -->
+        <div class="col-md-12 col-sm-12 clearfix ">
+          <ul class="list-inline links-list pull-left">
+            <!-- Language Selector -->
+            <li><i class="entypo-right-circled"></i>pharmacist</li>
+          </ul>
+
+          <ul class="list-inline links-list pull-right">
+            <li>
+              <a [routerLink]="['/users']">
+                <i class="fa fa-globe"></i> &nbsp;Website
+              </a>
+            </li>
+
+            <li class="sep"></li>
+            <li>
+              <a href=""> Logout &nbsp;<i class="fa fa-sign-out"></i> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr style="margin-top:0px;" />
+      <h3 style="margin:20px 0px; color:#818da1; font-weight:200;" align="left">
+        <i class="entypo-right-circled"></i>Medicine Category
+      </h3>
+      <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" (click)="addNewMedicine()">
+        <i class="fa fa-plus"></i>&nbsp;Add Medicine Category</button><br /><br /><br />
+
+      <input placeholder="enter search term here" class="form-control" />
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Medicine Category</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Total Quantity</th>
+            <th class="text-center">Manufacturing Company</th>
+            <th class="text-center">Sold Quantity</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Options</th>
+          </tr>
+        </thead>
+        <tbody>
+         <tr *ngFor="let medicine of med | paginate: { itemsPerPage: 5, currentPage: p }">
+            <td>{{ medicine.name }}</td>
+            <td>{{ medicine.medicine_Category }}</td>
+            <td>{{ medicine.description }}</td>
+            <td>{{ medicine.price }}</td>
+            <td>{{ medicine.quantity }}</td>
+            <td>{{ medicine.manufacture_Company }}</td>
+            <td>{{ medicine.null }}</td>
+            <td>{{ medicine.null }}</td>
+
+
+            <td>
+              <button class="btn btn-info" data-toggle="modal"  (click)="editMedicine(medicine)" data-target="#update">
+                <span class="glyphicon glyphicon-edit"></span> Edit</button>&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-danger" (click)="deleteMedicine(medicine)">
+                <span class="glyphicon glyphicon-trash"></span> Delete
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+ <!-- Modal -->
+ <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add Doctor</h4>
+      </div>
+      <div class="modal-body">
+
+        Medicine Name: <input type="text" class="form-control" [(ngModel)]="medicine.name" />
+
+        Medicine Category:
+        <select  class="form-control" [(ngModel)]="medicine.medicine_Category">
+          <option *ngFor="let medicine of medicineCategories" [value]="medicine.name">{{medicine.name}}</option>
+        </select>
+
+        Discription: <textarea cols="30" rows="4" class="form-control" [(ngModel)]="medicine.description" ></textarea>
+
+        Price: <input type="text" class="form-control" [(ngModel)]="medicine.price" />
+
+        Total Quantity: <input type="text" class="form-control" [(ngModel)]="medicine.quantity" />
+
+        Manufacturing Company: <input type="text" class="form-control" [(ngModel)]="medicine.manufacture_Company" />
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="saveMedicine(medicine)" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- edit -->
+  <div id="update" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Details</h4>
+        </div>
+        <div class="modal-body">
+
+        Id: <input type="text" class="form-control" [disabled]=true [(ngModel)]="medicine.medicine_Id" />
+
+        Medicine Name: <input type="text" class="form-control" [(ngModel)]="medicine.name" />
+
+        Medicine Category: <input type="text" class="form-control" [(ngModel)]="medicine.medicine_Category" />
+
+        Discription: <input type="text" class="form-control" [(ngModel)]="medicine.description" />
+
+        Price: <input type="text" class="form-control" [(ngModel)]="medicine.price" />
+
+        Total Quantity: <input type="text" class="form-control" [(ngModel)]="medicine.quantity" />
+
+        Manufacturing Company: <input type="text" class="form-control" [(ngModel)]="medicine.manufacture_Company" />
+                  </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="saveMedicine(medicine)"
+            data-dismiss="modal">Update</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  </div>
+</div>

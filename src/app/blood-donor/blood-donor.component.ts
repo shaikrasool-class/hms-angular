@@ -56,4 +56,39 @@ export class BloodDonorComponent implements OnInit {
       alert(error.error.errors[0]);
     } )
   }
+
+  editBloodDonor = (bloodDonor) => {
+    this.bloodDonor = bloodDonor;
+    this.bloodDonorService.editBloodDonor(bloodDonor).subscribe(response => {
+      this.getAllDonors();
+    },(error) => {
+      console.log("something is wrong")
+      alert(error.error.error[0]);
+    })
+  }
+
+  deleteBloodDonor = (bloodDonor) => {
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((response) => {
+      this.bloodDonorService.deleteBed(bloodDonor).subscribe(response => {
+        this.toastrService.successmsg("Blood donor deleted successfully..");
+        this.getAllDonors();
+      },
+        error => {
+          this.toastrService.infotoastr(error.error);
+        })
+    },
+      (error) => {
+        this.toastrService.infotoastr("You canceled your choice");
+      })
+  }
+
+
 }
