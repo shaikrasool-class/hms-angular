@@ -5,6 +5,9 @@ export class Doctor{
     phone: string;
     deparment: string;
     address: string;
+    pic: Blob;
+    fileName: string;
+    mimetype: string;
 
 
 }

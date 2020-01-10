@@ -28,7 +28,7 @@
       </div>
 
 
-      <div class="col-md-10 col-sm-8 main-content" style="min-height: 600px;" >
+      <div class="col-md-9 col-sm-8 main-content" style="min-width: 1240px;" >
           <div class="row">
             <div class="col-md-12 col-sm-12 clearfix">
              <h2 style="font-weight:200; margin:0px;" style="text-align:center;">Hospital Management System</h2>
@@ -128,6 +128,20 @@
                   Department: <input type="text" class="form-control" [(ngModel)]="doctor.deparment" />
 
                   Address: <input type="text" class="form-control" [(ngModel)]="doctor.address"/>
+
+
+                  <div *ngIf="currentFileUpload" class="progress">
+                      <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                        {{progress.percentage}}%</div>
+                    </div>
+
+                    <label class="btn btn-default">
+                      <input type="file" (change)="selectFile($event)">
+                    </label>
+
+                    <button class="btn btn-success" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-primary" (click)="saveDoctor(doctor)"

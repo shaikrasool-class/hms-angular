@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="col-md-10 col-sm-8 main-content" style="min-height: 600px;">
+    <div class="col-md-9 col-sm-8 main-content" style="min-width: 1240px;" >
       <div class="row">
         <div class="col-md-12 col-sm-12 clearfix">
           <h2 style="font-weight:200; margin:0px;" style="text-align:center;">
@@ -50,10 +50,10 @@
       </div>
       <hr style="margin-top:0px;" />
       <h3 style="margin:20px 0px; color:#818da1; font-weight:200;" align="left">
-        <i class="entypo-right-circled"></i>Medicine Category
+        <i class="entypo-right-circled"></i>Medicine
       </h3>
       <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal" (click)="addNewMedicine()">
-        <i class="fa fa-plus"></i>&nbsp;Add Medicine Category</button><br /><br /><br />
+        <i class="fa fa-plus"></i>&nbsp;Add Medicine</button><br /><br /><br />
 
       <input placeholder="enter search term here" class="form-control" />
       <table class="table table-striped">
@@ -147,7 +147,7 @@
 
         Medicine Category: <input type="text" class="form-control" [(ngModel)]="medicine.medicine_Category" />
 
-        Discription: <input type="text" class="form-control" [(ngModel)]="medicine.description" />
+        Discription: <textarea cols="30" rows="4" class="form-control" [(ngModel)]="medicine.description" ></textarea>
 
         Price: <input type="text" class="form-control" [(ngModel)]="medicine.price" />
 

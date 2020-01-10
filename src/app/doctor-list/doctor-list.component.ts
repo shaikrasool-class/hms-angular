@@ -3,6 +3,9 @@ import { DoctorService } from '../services/doctor.service';
 import { ToastrProvider } from '../providers/toastr.service';
 import { Doctor } from '../models/doctor';
 import { Router } from '@angular/router';
+import { UploadFileService } from '../upload/upload-file.service';
+import { HttpResponse, HttpEventType } from '@angular/common/http';
+
 
 declare var swal: any;
 @Component({
@@ -15,8 +18,13 @@ export class DoctorListComponent implements OnInit {
   doctor = new  Doctor();
   dr: any = [];
   search : any;
-
-  constructor(private doctorService:DoctorService, private toastrService: ToastrProvider, private _router : Router ) { }
+  selectedFiles: FileList;
+  currentFileUpload: File;
+  progress: { percentage: number } = { percentage: 0 };
+  constructor(private doctorService:DoctorService,
+              private toastrService: ToastrProvider,
+              private _router : Router,
+              private uploadService: UploadFileService ) { }
 
   ngOnInit() {
 
@@ -96,9 +104,29 @@ deleteDoctor = (doctor) => {
 
 
 getPatientList(d) {
+  console.log(d)
   let patients = d.pntDtos;
   this.doctorService.patientList = patients;
   this._router.navigate(["/doctor"]);
 }
 
+
+selectFile(event) {
+  this.selectedFiles = event.target.files;
+}
+
+upload() {
+  this.progress.percentage = 0;
+
+  this.currentFileUpload = this.selectedFiles.item(0);
+  this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+    if (event.type === HttpEventType.UploadProgress) {
+      this.progress.percentage = Math.round(100 * event.loaded / event.total);
+    } else if (event instanceof HttpResponse) {
+      console.log('File is completely uploaded!');
+    }
+  });
+
+  this.selectedFiles = undefined;
+}
 }

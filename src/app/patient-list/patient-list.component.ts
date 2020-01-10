@@ -1,7 +1,9 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { PatientService } from '../services/patient.service';
+import { Router } from '@angular/router';
 import { ToastrProvider } from '../providers/toastr.service';
 import { Patient } from '../models/patient';
+import { Doctor } from '../models/doctor';
 declare var swal: any;
 @Component({
   selector: 'app-patient',
@@ -16,7 +18,11 @@ export class PatientListComponent implements OnInit {
 
   search : any;
 
-  constructor(private patientService:PatientService,private toastrService: ToastrProvider) { }
+  doctor = new Doctor();
+  dr : any = [];
+
+
+  constructor(private patientService:PatientService,private toastrService: ToastrProvider,  private _router : Router ) { }
 
   ngOnInit() {
     this.getPatient();
@@ -92,4 +98,8 @@ export class PatientListComponent implements OnInit {
       console.log(error);
     })
   }
+  getPatientByDocotor (pt) {
+    this._router.navigate(["/patient"]);
+  }
+
 }

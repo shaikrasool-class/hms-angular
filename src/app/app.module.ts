@@ -37,6 +37,7 @@ import { BedAllotmentComponent } from './bed-allotment/bed-allotment.component';
 import { BloodDonorComponent } from './blood-donor/blood-donor.component';
 import { MedicineCategoryComponent } from './medicine-category/medicine-category.component';
 import { MedicineComponent } from './medicine/medicine.component';
+import { FormUploadComponent } from './upload/form-upload/form-upload.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
@@ -100,6 +101,7 @@ const appRoutes: Routes = [
     BloodDonorComponent,
     MedicineCategoryComponent,
     MedicineComponent,
+    FormUploadComponent,
 
   ],
   imports: [

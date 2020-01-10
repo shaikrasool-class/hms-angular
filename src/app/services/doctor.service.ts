@@ -31,6 +31,9 @@ deleteDoctor = (doctor) => {
   return this.http.delete(`${this.url.apiBaseUrl}doctor/deleteDoctor/${doctor.drId}`);
 }
 getOneDoctor= (doctor) => {
-  return this.http.get(`${this.url.apiBaseUrl}doctor/doctorId${doctor.id}`)
+  return this.http.get(`${this.url.apiBaseUrl}doctor/doctorId/${doctor.drId}`)
 }
+
+
+
 }

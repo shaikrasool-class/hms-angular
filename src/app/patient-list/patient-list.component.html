@@ -52,7 +52,7 @@
       </div>
     </div>
 
-    <div class="col-md-10 col-sm-8 main-content" style="min-height: 600px;" >
+    <div class="col-md-9 col-sm-8 main-content" style="min-width: 1240px;" >
 
         <div class="row">
       <div class="col-md-12 col-sm-12 clearfix">
@@ -112,7 +112,7 @@
         <tbody>
           <tr *ngFor="let pt of pnt  | filter : search |paginate: { itemsPerPage: 5, currentPage: p }">
                <td>{{ pt.pid }}</td>
-               <td [routerLink]="['/patient']">{{ pt.name }}</td>
+               <td (click)="getPatientByDocotor(pt)">{{ pt.name }}</td>
                <td>{{ pt.email }}</td>
                <td>{{ pt.diseases }}</td>
                <td>
