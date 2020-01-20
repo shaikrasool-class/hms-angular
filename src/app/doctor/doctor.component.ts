@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { DoctorService } from '../services/doctor.service';
 import { PatientService } from '../services/patient.service';
+import { BedallotmentService } from '../services/bedallotment.service';
 import { ToastrProvider } from '../providers/toastr.service';
 import { Patient } from '../models/patient';
 import { Doctor } from '../models/doctor';
-import { DoctorService } from '../services/doctor.service';
+import { Router } from '@angular/router';
+import { MatMenuModule} from '@angular/material/menu';
+
 declare var swal: any;
 @Component({
   selector: 'app-doctor',
@@ -12,14 +16,17 @@ declare var swal: any;
 })
 export class DoctorComponent implements OnInit {
 
-  constructor(private patientService:PatientService, private doctorService:DoctorService, private toastrService: ToastrProvider) { }
+  constructor(private patientService:PatientService,
+              private doctorService:DoctorService,
+              private bedAllotmentService: BedallotmentService,
+              private toastrService: ToastrProvider,
+              private _router : Router) { }
 
   patient = new Patient();
   pnt: any = [];
-
   doctor = new  Doctor();
   dr: any = [];
-
+  beds: any = [];
 
   ngOnInit() {
     this.getPatients();
@@ -118,5 +125,21 @@ export class DoctorComponent implements OnInit {
       console.log("something is wrong")
       alert(error.error.error[0]);
     })
+  }
+
+
+  getBeds(){
+    this.bedAllotmentService.getAllBedAllotments().subscribe((response) => {
+      console.log(response);
+      this.beds = response;
+      this._router.navigate(["/bedallotment"]);
+    },(error) => {
+      console.log(error);
+    })
+  }
+
+
+  getAppointmentList(){
+
   }
 }

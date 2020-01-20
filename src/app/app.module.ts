@@ -38,6 +38,11 @@ import { BloodDonorComponent } from './blood-donor/blood-donor.component';
 import { MedicineCategoryComponent } from './medicine-category/medicine-category.component';
 import { MedicineComponent } from './medicine/medicine.component';
 import { FormUploadComponent } from './upload/form-upload/form-upload.component';
+import { DoctorBedAllotmentComponent } from './doctor-bed-allotment/doctor-bed-allotment.component';
+import { DoctorAppointmentComponent } from './doctor-appointment/doctor-appointment.component';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { CalendarModule } from 'angular-calendar';
+import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: AppComponent },
@@ -63,6 +68,9 @@ const appRoutes: Routes = [
   { path: 'accountant-list', component:AccountantListComponent},
   { path: 'reciptionist-list', component:ReciptionistListComponent},
   { path: 'manageHospital', component:ManageHospitalComponent},
+  { path: 'doctor/bed-allotment', component:DoctorBedAllotmentComponent},
+  { path: 'doctor/appointment', component:DoctorAppointmentComponent},
+
   { path: '',
     redirectTo: '/users',
     pathMatch: 'full'
@@ -102,6 +110,9 @@ const appRoutes: Routes = [
     MedicineCategoryComponent,
     MedicineComponent,
     FormUploadComponent,
+    DoctorBedAllotmentComponent,
+    DoctorAppointmentComponent,
+    CalendarHeaderComponent,
 
   ],
   imports: [
@@ -112,7 +123,12 @@ const appRoutes: Routes = [
     FormsModule,
     NgxPaginationModule,
     ToastrModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxMaterialTimepickerModule,
+    CalendarModule  ,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

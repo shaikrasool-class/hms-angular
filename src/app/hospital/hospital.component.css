@@ -44,7 +44,6 @@ text-align:center;
 }
 
 
-
 button,
 input,
 optgroup,
@@ -9308,6 +9307,7 @@ button.close {
 .tile-stats .num {
   font-size: 38px;
   font-weight: bold;
+
 }
 .tile-stats h3 {
   font-size: 18px;

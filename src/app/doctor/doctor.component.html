@@ -10,10 +10,13 @@
         <ul class="list">
           <h5><strong>WHEREABOUTS</strong></h5>
           <li [routerLink]="['/doctor']">Dashboard</li>
-          <li>Appointment</li>
+          <ul>
+          <li [routerLink] ="['/doctor/appointment']" >Appointment</li>
+          </ul>
+
           <li>Prescription</li>
           <li [routerLink]="['/doctor']">Patient</li>
-          <li>Bed Allotment</li>
+          <li [routerLink]="['/doctor/bed-allotment']">Bed Allotment</li>
           <li>Blood Bank</li>
           <li>Profile</li>
         </ul>
@@ -71,7 +74,11 @@
             <th class="text-center">Id</th>
             <th class="text-center">Name</th>
             <th class="text-center">Email</th>
-            <th class="text-center">Disease</th>
+            <th class="text-center">Address</th>
+            <th class="text-center">Phone</th>
+            <th class="text-center">Sex</th>
+            <th class="text-center">Age</th>
+            <th class="text-center">Blood Group</th>
             <th class="text-center">Action</th>
             <th class="text-center">View</th>
           </tr>
@@ -81,7 +88,11 @@
             <td>{{ pt.pid }}</td>
             <td [routerLink]="['/patient']">{{ pt.name }}</td>
             <td>{{ pt.email }}</td>
-            <td>{{ pt.diseases }}</td>
+            <td>{{ pt.address }}</td>
+            <td>{{ pt.phone }}</td>
+            <td>{{ pt.gender }}</td>
+            <td>{{ pt.age }}</td>
+            <td>{{ pt.bloodGroup }}</td>
             <td>
               <button class="btn btn-info" (click)="editPatient(pt)" data-toggle="modal" data-target="#update">
                 <span class="glyphicon glyphicon-edit"></span> Edit
@@ -115,7 +126,7 @@
         <h4 class="modal-title">Add Paitent</h4>
       </div>
       <div class="modal-body">
-          Dr.Id: <input type="text" class="form-control"  [(ngModel)]="patient.drId" />
+        Dr.Id: <input type="text" class="form-control"  [(ngModel)]="pnt.drId" />
         Name: <input type="text" class="form-control" [(ngModel)]="patient.name" />
         Gender:
         <select [(ngModel)]="patient.gender" class="form-control">
